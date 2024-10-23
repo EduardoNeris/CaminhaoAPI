@@ -1,0 +1,6 @@
+@CaminhaoAPI_HostAddress = http://localhost:5157
+
+GET {{CaminhaoAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

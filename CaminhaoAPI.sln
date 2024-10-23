@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaminhaoAPI", "CaminhaoAPI\CaminhaoAPI.csproj", "{AE5A031F-8ED3-461E-BBBE-396CFB387655}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaminhaoAPI.Tests", "CaminhaoAPI.Tests\CaminhaoAPI.Tests.csproj", "{E78B7AAE-096C-4E2D-B129-C5216BE46B30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE5A031F-8ED3-461E-BBBE-396CFB387655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE5A031F-8ED3-461E-BBBE-396CFB387655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE5A031F-8ED3-461E-BBBE-396CFB387655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE5A031F-8ED3-461E-BBBE-396CFB387655}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E78B7AAE-096C-4E2D-B129-C5216BE46B30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E78B7AAE-096C-4E2D-B129-C5216BE46B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E78B7AAE-096C-4E2D-B129-C5216BE46B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E78B7AAE-096C-4E2D-B129-C5216BE46B30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE0A9549-5427-41CB-8EFC-E834C76688F8}
+	EndGlobalSection
+EndGlobal
