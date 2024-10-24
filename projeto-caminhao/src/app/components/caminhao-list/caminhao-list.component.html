@@ -1,0 +1,32 @@
+<div>
+  <h1>Gerenciamento de Caminhões</h1>
+
+  <form (ngSubmit)="isEditing ? updateCaminhao() : addCaminhao()">
+    <input
+      type="text"
+      [(ngModel)]="novoCaminhao.Modelo"
+      name="modelo"
+      placeholder="Modelo"
+      required
+    />
+    <input
+      type="number"
+      [(ngModel)]="novoCaminhao.AnoFabricacao"
+      name="ano"
+      placeholder="Ano"
+      required
+    />
+    <button type="submit">{{ isEditing ? "Atualizar" : "Adicionar" }}</button>
+    <button type="button" (click)="cancelEdit()" *ngIf="isEditing">
+      Cancelar
+    </button>
+  </form>
+
+  <ul>
+    <li *ngFor="let caminhao of caminhoes">
+      {{ caminhao.Modelo }} - {{ caminhao.AnoFabricacao }}
+      <button (click)="editCaminhao(caminhao)">Editar</button>
+      <button (click)="deleteCaminhao(caminhao.Id)">Excluir</button>
+    </li>
+  </ul>
+</div>
