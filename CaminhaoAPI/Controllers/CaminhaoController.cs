@@ -50,7 +50,7 @@ namespace CaminhaoApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Caminhao>> Post(Caminhao caminhao)
         {
-            _context.Caminhoes.Add(caminhao);
+            await _context.Caminhoes.AddAsync(caminhao);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(Get), new { id = caminhao.Id }, caminhao);
         }
