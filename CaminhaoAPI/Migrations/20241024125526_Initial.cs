@@ -5,7 +5,7 @@
 namespace CaminhaoAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace CaminhaoAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Modelo = table.Column<int>(type: "int", nullable: false),
                     AnoFabricacao = table.Column<int>(type: "int", nullable: false),
-                    CodigoChassi = table.Column<int>(type: "int", maxLength: 17, nullable: false),
+                    CodigoChassi = table.Column<string>(type: "nvarchar(17)", maxLength: 17, nullable: false),
                     Cor = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Planta = table.Column<int>(type: "int", nullable: false)
                 },

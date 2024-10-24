@@ -17,7 +17,7 @@ namespace CaminhaoAPI.Models
 
         [Required]
         [StringLength(17)]
-        public int CodigoChassi { get; set; }
+        public string? CodigoChassi { get; set; }
 
         [Required]
         [StringLength(30)]

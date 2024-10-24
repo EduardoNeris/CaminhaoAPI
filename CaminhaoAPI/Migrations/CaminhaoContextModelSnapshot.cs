@@ -32,9 +32,10 @@ namespace CaminhaoAPI.Migrations
                     b.Property<int>("AnoFabricacao")
                         .HasColumnType("int");
 
-                    b.Property<int>("CodigoChassi")
+                    b.Property<string>("CodigoChassi")
+                        .IsRequired()
                         .HasMaxLength(17)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(17)");
 
                     b.Property<string>("Cor")
                         .IsRequired()

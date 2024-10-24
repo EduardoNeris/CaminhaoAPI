@@ -27,11 +27,11 @@ public class Startup
         {
             app.UseSwagger();
             app.UseSwaggerUI();
+
+            app.UseDeveloperExceptionPage();
         }
 
         app.UseHttpsRedirection();
-
-        //app.UseAuthorization();
 
         app.UseRouting();
         app.UseEndpoints(endpoints =>

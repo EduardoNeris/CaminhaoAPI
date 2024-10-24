@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CaminhaoAPI.Migrations
 {
     [DbContext(typeof(CaminhaoContext))]
-    [Migration("20241023225016_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241024125526_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,9 +35,10 @@ namespace CaminhaoAPI.Migrations
                     b.Property<int>("AnoFabricacao")
                         .HasColumnType("int");
 
-                    b.Property<int>("CodigoChassi")
+                    b.Property<string>("CodigoChassi")
+                        .IsRequired()
                         .HasMaxLength(17)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(17)");
 
                     b.Property<string>("Cor")
                         .IsRequired()
