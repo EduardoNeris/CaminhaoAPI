@@ -1,32 +1,55 @@
 <div>
-  <h1>Gerenciamento de Caminhões</h1>
-
-  <form (ngSubmit)="isEditing ? updateCaminhao() : addCaminhao()">
-    <input
-      type="text"
-      [(ngModel)]="novoCaminhao.Modelo"
-      name="modelo"
-      placeholder="Modelo"
-      required
-    />
-    <input
-      type="number"
-      [(ngModel)]="novoCaminhao.AnoFabricacao"
-      name="ano"
-      placeholder="Ano"
-      required
-    />
-    <button type="submit">{{ isEditing ? "Atualizar" : "Adicionar" }}</button>
-    <button type="button" (click)="cancelEdit()" *ngIf="isEditing">
-      Cancelar
-    </button>
-  </form>
-
-  <ul>
-    <li *ngFor="let caminhao of caminhoes">
-      {{ caminhao.Modelo }} - {{ caminhao.AnoFabricacao }}
-      <button (click)="editCaminhao(caminhao)">Editar</button>
-      <button (click)="deleteCaminhao(caminhao.Id)">Excluir</button>
-    </li>
-  </ul>
+  <div class="row">
+    <div class="col">
+      <h3 mat-subheader>Caminhões</h3>
+      <div class="row">
+        <div class="col">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <th>#</th>
+              <th>MODELO</th>
+              <th>ANO</th>
+              <th>CHASSI</th>
+              <th>COR</th>
+              <th>PLANTA</th>
+              <th style="max-width: 60px">
+                <div class="btn-group">
+                  <button class="btn btn-primary btn-sm">Novo</button>
+                </div>
+              </th>
+            </thead>
+            <tbody>
+              @for (caminhao of caminhoes; track caminhao.id) {
+              <tr>
+                <td>{{ caminhao.id }}</td>
+                <td>{{ getModeloDescription(caminhao.modelo) }}</td>
+                <td>{{ caminhao.anoFabricacao }}</td>
+                <td>{{ caminhao.codigoChassi }}</td>
+                <td>{{ caminhao.cor }}</td>
+                <td>{{ getPlantaDescription(caminhao.planta) }}</td>
+                <td style="max-width: 60px">
+                  <div class="btn-group">
+                    <button class="btn btn-secondary btn-sm">Editar</button>
+                    <button
+                      class="btn btn-danger btn-sm"
+                      (click)="delete(caminhao.id)"
+                    >
+                      Excluir
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              } @empty {
+              <tr>
+                <td colspan="7" style="text-align: center">
+                  <span>Lista vazia!</span>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

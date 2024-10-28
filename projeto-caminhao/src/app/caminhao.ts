@@ -1,10 +1,11 @@
-// src/app/caminhao.ts
+import { ModeloEnum } from "./modelo";
+
 export interface Caminhao {
-    Id: number;
-    Modelo: number;
-    AnoFabricacao: number;
-    CodigoChassi: string;
-    Cor: string;
-    Planta: number;
+    id: number;
+    modelo: ModeloEnum;
+    anoFabricacao: number;
+    codigoChassi: string;
+    cor: string;
+    planta: number;
   }
   

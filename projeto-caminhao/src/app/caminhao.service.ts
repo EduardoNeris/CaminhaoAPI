@@ -24,7 +24,7 @@ export class CaminhaoService {
   }
 
   updateCaminhao(caminhao: Caminhao): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${caminhao.Id}`, caminhao);
+    return this.http.put<void>(`${this.apiUrl}/${caminhao.id}`, caminhao);
   }
 
   deleteCaminhao(id: number): Observable<void> {
