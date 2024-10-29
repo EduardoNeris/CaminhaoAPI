@@ -7,7 +7,7 @@ import { Caminhao } from './caminhao';
   providedIn: 'root'
 })
 export class CaminhaoService {
-  private apiUrl = 'https://localhost:7061/api/caminhao';
+  private apiUrl = 'https://localhost:44379/api/caminhao';
 
   constructor(private http: HttpClient) { }
 
