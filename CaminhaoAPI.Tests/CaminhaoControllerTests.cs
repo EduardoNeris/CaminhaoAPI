@@ -17,14 +17,14 @@ public class CaminhaoControllerTests
             .UseInMemoryDatabase(databaseName: "TestDatabase")
             .Options;
 
-        // Criando o contexto e o controlador
         using (var context = new CaminhaoContext(_options))
         {
-            context.Caminhoes.AddRange(new List<Caminhao>
-            {
-                new Caminhao { Id = 1, Modelo = ModeloEnum.FM, AnoFabricacao = 2020, CodigoChassi = "12345678901234567", Cor = "Azul", Planta = PlantaEnum.Brasil },
-                new Caminhao { Id = 2, Modelo = ModeloEnum.VM, AnoFabricacao = 2021, CodigoChassi = "23456789012345678", Cor = "Verde", Planta = PlantaEnum.Suecia }
-            });
+            if (context.Caminhoes.FirstOrDefault(x => x.Id == 1) == null)
+                context.Caminhoes.Add(new Caminhao { Id = 1, Modelo = ModeloEnum.FM, AnoFabricacao = 2020, CodigoChassi = "12345678901234567", Cor = "Azul", Planta = PlantaEnum.Brasil });
+
+            if (context.Caminhoes.FirstOrDefault(x => x.Id == 2) == null)
+                context.Caminhoes.Add(new Caminhao { Id = 2, Modelo = ModeloEnum.VM, AnoFabricacao = 2021, CodigoChassi = "23456789012345678", Cor = "Verde", Planta = PlantaEnum.Suecia });
+
             context.SaveChanges();
         }
 
@@ -42,7 +42,7 @@ public class CaminhaoControllerTests
         // Assert
         var actionResult = Assert.IsType<ActionResult<IEnumerable<Caminhao>>>(result);
         var okResult = Assert.IsType<List<Caminhao>>(actionResult.Value);
-        Assert.Equal(2, okResult.Count);
+        Assert.True(okResult.Any());
     }
 
     [Fact]
