@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { CaminhaoService } from '../../caminhao.service';
 import { Caminhao } from '../../caminhao';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
 import { ModeloEnum } from '../../modelo';
 import { PlantaEnum } from '../../planta';
+import { MatDialog } from '@angular/material/dialog';
+import { CaminhaoFormComponent } from '../caminhao-form/caminhao-form.component';
 
 @Component({
   selector: 'app-caminhao-list',
   templateUrl: './caminhao-list.component.html',
   standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule, MatButtonModule],
+  imports: [CommonModule],
 })
 export class CaminhaoListComponent implements OnInit {
   caminhoes: Caminhao[] = [];
 
-  constructor(private caminhaoService: CaminhaoService) {}
+  constructor(
+    private caminhaoService: CaminhaoService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.loadItems();
@@ -41,5 +43,16 @@ export class CaminhaoListComponent implements OnInit {
 
   getPlantaDescription(planta: PlantaEnum) {
     return PlantaEnum[planta];
+  }
+
+  openForm(caminhao?: Caminhao): void {
+    const dialogRef = this.dialog.open(CaminhaoFormComponent, {
+      width: '500px',
+      data: caminhao,
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      this.loadItems();
+    });
   }
 }
